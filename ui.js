@@ -6,14 +6,18 @@ module.exports = function (config) {
     var link = document.createElement('link');
 	link.href = config.icon;
 	link.rel = 'shortcut icon';
-	//link.sizes = '196x196';
+	$(link).attr('sizes', '196x196');
+
+	var linkApple = document.createElement('link');
+	linkApple.href = config.icon;
+	linkApple.rel = 'apple-touch-icon';
 
 	var meta = document.createElement('meta');
 	for (var prop in config.meta) {
 		meta[prop] = config.meta[prop];
 	}
 
-    $("head").append(link).append(meta);
+    $("head").append(link).append(linkApple).append(meta);
 
     var device;
 
