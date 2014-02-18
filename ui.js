@@ -1,5 +1,35 @@
+M.wrap('github/lucaboieru/pin-notification/dev/ui.js', function (require, module, exports) {
 module.exports = function (config) {
     var self = this;
 
-    console.log("I'm working!");
+    // adding homescreen icon and meta
+    var link = document.createElement('link');
+	link.href = config.icon;
+	link.rel = 'shortcut icon';
+	//link.sizes = '196x196';
+
+	var meta = document.createElement('meta');
+	for (var prop in config.meta) {
+		meta[prop] = config.meta[prop];
+	}
+
+    $("head").append(link).append(meta);
+
+    var device;
+
+    if (navigator.userAgent.match(/(iPod|iPhone|iPad)/) && navigator.userAgent.match(/AppleWebKit/)) {
+        device = "ios";
+    } else {
+    	device = "other";
+    }
+
+    if (config.selectors[device] && window.localStorage.getItem("notification") === null) {
+    	$(config.selectors[device]).show();
+    	$(self.dom).parent().show();
+    	$(self.dom).parent().on('click', function () {
+        	$(this).hide();
+        	window.localStorage.setItem("notification", false);
+    	});
+    }
 }
+return module; });
