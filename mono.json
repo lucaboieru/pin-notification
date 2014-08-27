@@ -1,10 +1,10 @@
 {
     "source": "github",
-    "owner": "jillix",
+    "owner": "lucaboieru",
     "name": "pin-notification",
     "dependencies": [
         "/ui.js",
-        "github/jillix/bind/v0.2.1",
-        "github/jillix/events/v0.1.8"
+        "github/jillix/bind/v0.3.1",
+        "github/jillix/events/v0.3.0"
     ]
 }

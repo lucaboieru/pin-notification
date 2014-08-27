@@ -1,4 +1,3 @@
-M.wrap('github/lucaboieru/pin-notification/dev/ui.js', function (require, module, exports) {
 module.exports = function (config) {
     var self = this;
 
@@ -36,4 +35,4 @@ module.exports = function (config) {
     	});
     }
 }
-return module; });
+
